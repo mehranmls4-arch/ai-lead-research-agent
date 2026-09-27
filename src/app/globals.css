@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "IBM Plex Serif", ui-serif, Georgia, serif;
+
+  --color-ink: #172033;
+  --color-ink-2: #3d4759;
+  --color-muted: #5b6474;
+  --color-paper: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-line: #dde2ea;
+  --color-line-strong: #c5ccd8;
+  --color-accent: #2349c6;
+  --color-accent-strong: #1b3a9e;
+  --color-accent-soft: #e8edfb;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdecea;
+  --color-ok: #17754a;
+  --color-ok-soft: #e7f4ed;
+  --color-warn: #a86a12;
+  --color-warn-soft: #fbf1e1;
+
+  /* Provenance labels — one colour per evidence label, used everywhere a claim is shown */
+  --color-prov-verified: #17754a;
+  --color-prov-source: #1f5fa8;
+  --color-prov-estimated: #a86a12;
+  --color-prov-inferred: #5b6474;
+  --color-prov-demo: #7a4cc2;
+  --color-prov-potential: #b23a5b;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .data-table {
+    @apply w-full border-collapse text-left text-[13px];
+  }
+  .data-table th {
+    @apply border-b border-line bg-paper px-3 py-2 font-medium text-muted whitespace-nowrap;
+  }
+  .data-table td {
+    @apply border-b border-line px-3 py-2.5 align-top;
+  }
+  .data-table tbody tr:hover {
+    @apply bg-[#f9fafc];
+  }
+  .prose-report p {
+    @apply mb-3 leading-relaxed;
+  }
+}
