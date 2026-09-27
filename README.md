@@ -136,7 +136,7 @@ sequenceDiagram
         A->>AI: extract_profile / generate_outreach / summarize_lead
         A->>DB: record tool call (input/output summary, status, duration)
     end
-    A->>DB: save report, score, signals, pain points, drafts; move CRM stage
+    A->>DB: save report, score, signals, pain points, drafts, move CRM stage
     U->>API: GET /api/runs/:id (polling)
     API-->>U: progress + tool activity
 ```
